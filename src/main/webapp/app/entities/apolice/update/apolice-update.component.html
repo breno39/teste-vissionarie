@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-apolice-heading" data-cy="ApoliceCreateUpdateHeading">Create or edit a Apolice</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_inicio">Inicio</label>
+          <div class="input-group">
+            <input
+              id="field_inicio"
+              data-cy="inicio"
+              type="text"
+              class="form-control"
+              name="inicio"
+              ngbDatepicker
+              #inicioDp="ngbDatepicker"
+              formControlName="inicio"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="inicioDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('inicio')!.invalid && (editForm.get('inicio')!.dirty || editForm.get('inicio')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('inicio')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_fim">Fim</label>
+          <div class="input-group">
+            <input
+              id="field_fim"
+              data-cy="fim"
+              type="text"
+              class="form-control"
+              name="fim"
+              ngbDatepicker
+              #fimDp="ngbDatepicker"
+              formControlName="fim"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="fimDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('fim')!.invalid && (editForm.get('fim')!.dirty || editForm.get('fim')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('fim')?.errors?.required"> This field is required. </small>
+          </div>
+
+          <div *ngIf="editForm.get('fim')!.dirty || editForm.get('fim')!.touched">
+            <small class="form-text text-danger" *ngIf="editForm.errors?.dateValidator">
+              the start date cant be bigger than the end date
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_placaVeiculo">Placa Veiculo</label>
+          <input
+            type="text"
+            class="form-control"
+            name="placaVeiculo"
+            id="field_placaVeiculo"
+            data-cy="placaVeiculo"
+            formControlName="placaVeiculo"
+          />
+          <div
+            *ngIf="editForm.get('placaVeiculo')!.invalid && (editForm.get('placaVeiculo')!.dirty || editForm.get('placaVeiculo')!.touched)"
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('placaVeiculo')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_valor">Valor</label>
+          <input type="number" class="form-control" name="valor" id="field_valor" data-cy="valor" formControlName="valor" />
+          <div *ngIf="editForm.get('valor')!.invalid && (editForm.get('valor')!.dirty || editForm.get('valor')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('valor')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

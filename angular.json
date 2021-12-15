@@ -108,6 +108,7 @@
   },
   "defaultProject": "vissionarie",
   "cli": {
+    "analytics": "a129f064-dc2b-423d-9730-7fdaea4f9b62",
     "packageManager": "npm"
   }
 }

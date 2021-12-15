@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-apolice-heading" data-cy="ApoliceCreateUpdateHeading">Find Apolice by Numero</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_Numero">Numero</label>
+          <input type="number" class="form-control" name="Numero" id="field_valor" data-cy="Numero" formControlName="Numero" />
+          <div *ngIf="editForm.get('Numero')!.invalid && (editForm.get('Numero')!.dirty || editForm.get('Numero')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('Numero')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

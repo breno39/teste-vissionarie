@@ -1,0 +1,91 @@
+<div>
+  <h2 id="page-heading" data-cy="ApoliceHeading">
+    <span>Apolices</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-apolice"
+        [routerLink]="['/apolice/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Apolice </span>
+      </button>
+
+      <button id="jh-create-entity" data-cy="entityCreateButton" class="btn btn-warning ml-2" [routerLink]="['/apolice/numero']">
+        <fa-icon icon="search"></fa-icon>
+        <span> Find Apolice by Numero </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="apolices?.length === 0">
+    <span>No apolices found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="apolices && apolices.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span>ID</span></th>
+          <th scope="col"><span>Numero</span></th>
+          <th scope="col"><span>Inicio</span></th>
+          <th scope="col"><span>Fim</span></th>
+          <th scope="col"><span>Placa Veiculo</span></th>
+          <th scope="col"><span>Valor</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let apolice of apolices; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/apolice', apolice.id, 'view']">{{ apolice.id }}</a>
+          </td>
+          <td>{{ apolice.numero }}</td>
+          <td>{{ apolice.inicio | formatMediumDate }}</td>
+          <td>{{ apolice.fim | formatMediumDate }}</td>
+          <td>{{ apolice.placaVeiculo }}</td>
+          <td>{{ apolice.valor }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/apolice', apolice.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/apolice', apolice.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(apolice)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

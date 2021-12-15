@@ -1,0 +1,15 @@
+
+entity Cliente {
+	cpf String required minlength(11) maxlength(11) unique
+    nome String required minlength(10)
+    cidade String required minlength(2)
+    estado String required minlength(2)
+}
+
+entity Apolice {
+	numero Long
+    inicio LocalDate required
+    fim LocalDate required
+    placaVeiculo String required
+    valor BigDecimal
+}
