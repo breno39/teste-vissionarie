@@ -2,6 +2,8 @@
 
 This application was generated using JHipster 7.4.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.4.1](https://www.jhipster.tech/documentation-archive/v7.4.1).
 
+**As credenciais para o console são admin para usuario e admin para senha, as entidades do teste de codigo podem ser visualizadas na aba entities no menu superior**
+
 ## Project Structure
 
 Node is required for generation and recommended for development. `package.json` is always generated for a better development experience with prettier, commit hooks, scripts and so on.
