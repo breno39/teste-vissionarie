@@ -1,4 +1,4 @@
-package com.vissionarie.codetest.web.rest.errors;
+package com.vissionarie.codetest.service.errors;
 
 import org.zalando.problem.AbstractThrowableProblem;
 import org.zalando.problem.Status;

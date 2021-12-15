@@ -3,4 +3,4 @@
  *
  * More information on https://github.com/zalando/problem-spring-web
  */
-package com.vissionarie.codetest.web.rest.errors;
+package com.vissionarie.codetest.service.errors;

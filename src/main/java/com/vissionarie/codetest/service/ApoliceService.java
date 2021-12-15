@@ -2,7 +2,7 @@ package com.vissionarie.codetest.service;
 
 import com.vissionarie.codetest.domain.Apolice;
 import com.vissionarie.codetest.repository.ApoliceRepository;
-import com.vissionarie.codetest.web.rest.errors.BadRequestAlertException;
+import com.vissionarie.codetest.service.errors.BadRequestAlertException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -52,7 +52,6 @@ public class ApoliceService {
 
     public Optional<Apolice> patch(Apolice apolice, String id) {
         log.info("patching apolice {} with {}", id, apolice.hashCode());
-        checkIfApoliceIdIsNull(apolice);
 
         if (!Objects.equals(id, apolice.getId())) {
             throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");

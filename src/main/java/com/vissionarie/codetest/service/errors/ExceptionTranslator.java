@@ -1,4 +1,4 @@
-package com.vissionarie.codetest.web.rest.errors;
+package com.vissionarie.codetest.service.errors;
 
 import java.net.URI;
 import java.util.Arrays;

@@ -2,7 +2,7 @@ package com.vissionarie.codetest.service;
 
 import com.vissionarie.codetest.domain.Cliente;
 import com.vissionarie.codetest.repository.ClienteRepository;
-import com.vissionarie.codetest.web.rest.errors.BadRequestAlertException;
+import com.vissionarie.codetest.service.errors.BadRequestAlertException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -33,8 +33,6 @@ public class ClienteService {
 
     public Cliente update(Cliente cliente, String id) {
         log.info("updating cliente {} with {}", id, cliente.hashCode());
-
-        checkIfClienteIdIsNull(cliente);
 
         if (!Objects.equals(id, cliente.getId())) {
             throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");

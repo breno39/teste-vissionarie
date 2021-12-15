@@ -1,4 +1,4 @@
-package com.vissionarie.codetest.web.rest.errors;
+package com.vissionarie.codetest.service.errors;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;

@@ -14,7 +14,7 @@
     "otherModules": [],
     "pages": [],
     "creationTimestamp": 1639426707393,
-    "serviceDiscoveryType": "no",
+    "serviceDiscoveryType": false,
     "reactive": false,
     "authenticationType": "jwt",
     "packageName": "com.vissionarie.codetest",
@@ -42,6 +42,11 @@
     "enableGradleEnterprise": false,
     "languages": ["en", "fr"],
     "entities": ["Cliente", "Apolice"],
-    "lastLiquibaseTimestamp": 1639431240000
+    "lastLiquibaseTimestamp": 1639431240000,
+    "appsFolders": ["vissionarie"],
+    "directoryPath": "../",
+    "gatewayType": "SpringCloudGateway",
+    "clusteredDbApps": ["vissionarie"],
+    "monitoring": "prometheus"
   }
 }

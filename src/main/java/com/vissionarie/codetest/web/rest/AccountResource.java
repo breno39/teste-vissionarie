@@ -7,7 +7,7 @@ import com.vissionarie.codetest.service.MailService;
 import com.vissionarie.codetest.service.UserService;
 import com.vissionarie.codetest.service.dto.AdminUserDTO;
 import com.vissionarie.codetest.service.dto.PasswordChangeDTO;
-import com.vissionarie.codetest.web.rest.errors.*;
+import com.vissionarie.codetest.service.errors.*;
 import com.vissionarie.codetest.web.rest.vm.KeyAndPasswordVM;
 import com.vissionarie.codetest.web.rest.vm.ManagedUserVM;
 import java.util.*;

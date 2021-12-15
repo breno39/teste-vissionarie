@@ -1,14 +1,11 @@
 package com.vissionarie.codetest.web.rest;
 
 import com.vissionarie.codetest.domain.Cliente;
-import com.vissionarie.codetest.repository.ClienteRepository;
 import com.vissionarie.codetest.service.ClienteService;
 import com.vissionarie.codetest.service.dto.ClienteDTO;
-import com.vissionarie.codetest.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;

@@ -106,7 +106,6 @@ class ApoliceResourceIT {
         List<Apolice> apoliceList = apoliceRepository.findAll();
         assertThat(apoliceList).hasSize(databaseSizeBeforeCreate + 1);
         Apolice testApolice = apoliceList.get(apoliceList.size() - 1);
-        assertThat(testApolice.getNumero()).isEqualTo(DEFAULT_NUMERO);
         assertThat(testApolice.getInicio()).isEqualTo(DEFAULT_INICIO);
         assertThat(testApolice.getFim()).isEqualTo(DEFAULT_FIM);
         assertThat(testApolice.getPlacaVeiculo()).isEqualTo(DEFAULT_PLACA_VEICULO);

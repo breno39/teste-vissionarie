@@ -26,8 +26,8 @@ import org.springframework.test.web.servlet.MockMvc;
 @WithMockUser
 class ClienteResourceIT {
 
-    private static final String DEFAULT_CPF = "AAAAAAAAAAA";
-    private static final String UPDATED_CPF = "BBBBBBBBBBB";
+    private static final String DEFAULT_CPF = "05380619525";
+    private static final String UPDATED_CPF = "06278013070";
 
     private static final String DEFAULT_NOME = "AAAAAAAAAA";
     private static final String UPDATED_NOME = "BBBBBBBBBB";
